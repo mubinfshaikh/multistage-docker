@@ -1,5 +1,5 @@
 # ------------------- Stage 1: Build Stage ------------------------------
-FROM python:3.9 AS backend-builder
+FROM python:3.9 AS builder
 
 # Set the working directory to /app
 WORKDIR /app
@@ -19,10 +19,10 @@ FROM python:3.9-slim
 WORKDIR /app
 
 # Copy the built dependencies from the backend-builder stage
-COPY --from=backend-builder /usr/local/lib/python3.9/site-packages/ /usr/local/lib/python3.9/site-packages/
+COPY --from=builder /usr/local/lib/python3.9/site-packages/ /usr/local/lib/python3.9/site-packages/
 
 # Copy the application code from the backend-builder stage
-COPY --from=backend-builder /app /app
+COPY --from=builder /app /app
 
 # Expose port 5000 for the Flask application
 EXPOSE 5000
