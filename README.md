@@ -38,7 +38,7 @@ Modern application deployments often involve containerizing both the backend and
    ```
    docker run --rm --name demo-app -d -p 5000:5000 -t demo-app 
    ```
-2. Check the Docker container is Runing or not:
+2. Check the Docker container is Running, if not check the logs from below command on point no. 3:
    ```
    docker ps
    ```
