@@ -9,8 +9,6 @@ This repository demonstrates the use of a multistage Dockerfile to build and pac
 - [Getting Started](#getting-started)
 - [Usage](#usage)
 - [Dockerfile Explanation](#dockerfile-explanation)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 
@@ -55,19 +53,13 @@ Modern application deployments often involve containerizing both the backend and
 
 ## Dockerfile Explanation
 
-This Dockerfile is structured into two stages, each finely tuned for a specific purpose to ensure efficient and optimized Docker image creation.
+The multistage Dockerfile is divided into two stages, each designed for a specific purpose.
 
-Stage 1: Building the Flask Application  
+Stage 1: Building the Flask Application In this stage, we use a Python base image to build the Flask backend. We copy the source code of the backend and install the required dependencies. Then, we build the Flask application.
 
-* Leveraging a Python base image, we initiate the construction of our Flask backend.
-* We meticulously copy the backend source code and proceed to install all requisite dependencies.
-* With precision, we orchestrate the building process of our Flask application, ensuring its robustness and functionality.
+Stage 2: Creating the Final Image For the final image, we use a minimal Python base image. We copy the built backend from Stage 1 into this image. We expose the necessary port and start the Flask application.
 
-Stage 2: Crafting the Final Image  
-
-* Employing a sleek and minimalist Python base image for our final product, we embark on the assembly of the ultimate Docker image.
-* Carefully integrating the meticulously crafted backend from Stage 1 into our final image.
-* We meticulously expose the necessary port and seamlessly commence the Flask application, ensuring a smooth and effortless deployment experience.
+This multistage Dockerfile allows for an optimized and efficient build process, ensuring that the final image is lightweight and contains only the necessary components for running the Flask application.
 
 
 
