@@ -55,9 +55,17 @@ Modern application deployments often involve containerizing both the backend and
 
 The multistage Dockerfile is divided into two stages, each designed for a specific purpose.
 
-Stage 1: Building the Flask Application In this stage, we use a Python base image to build the Flask backend. We copy the source code of the backend and install the required dependencies. Then, we build the Flask application.
+Stage 1: Building the Flask Application In this stage:
 
-Stage 2: Creating the Final Image For the final image, we use a minimal Python base image. We copy the built backend from Stage 1 into this image. We expose the necessary port and start the Flask application.
+* we use a Python base image to build the Flask backend. 
+* We copy the source code of the backend and install the required dependencies. 
+* Then, we build the Flask application.
+
+Stage 2: Creating the Final Image For the final image:
+
+* we use a minimal Python base image. 
+* We copy the built backend from Stage 1 into this image. 
+* We expose the necessary port and start the Flask application.
 
 This multistage Dockerfile allows for an optimized and efficient build process, ensuring that the final image is lightweight and contains only the necessary components for running the Flask application.
 
